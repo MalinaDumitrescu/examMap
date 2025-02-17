@@ -10,16 +10,8 @@ public class Controller {
         this.produktService = produktService;
     }
 
-    public void addProduct(Produkt produkt) {
+    public void addProdukt(Produkt produkt) {
         produktService.add(produkt);
-    }
-
-    public void addCustomer(Kunde kunde) {
-        kundeService.add(kunde);
-    }
-
-    public Kunde getKunde(int id) {
-        return kundeService.get(id);
     }
 
     public Produkt getProdukt(int id) {
@@ -32,6 +24,14 @@ public class Controller {
 
     public void deleteProdukt(int id) {
         produktService.delete(id);
+    }
+
+    public void addKunde(Kunde kunde) {
+        kundeService.add(kunde);
+    }
+
+    public Kunde getKunde(int id) {
+        return kundeService.get(id);
     }
 
     public void updateKunde(int id, Kunde kunde) {

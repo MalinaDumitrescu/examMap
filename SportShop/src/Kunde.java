@@ -16,8 +16,9 @@ public class Kunde extends BaseEntity {
     public String getOrt() { return ort; }
     public List<Integer> getProduktIds() { return produktIds; }
 
-    public void addProdukt(int productId) {
-        produktIds.add(productId);
+    // Add a new product ID to the list in the Kunde object
+    public void addProdukt(int produktId) {
+        produktIds.add(produktId);
     }
 
     @Override

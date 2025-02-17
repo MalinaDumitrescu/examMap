@@ -60,8 +60,8 @@ public class ConsoleView {
         String season = scanner.nextLine();
 
         Produkt produkt = new Produkt(0, name, price, season);
-        controller.addProduct(produkt);
-        System.out.println("✅ Produkt added successfully!");
+        controller.addProdukt(produkt);
+        System.out.println("Produkt added successfully!");
     }
 
     private void viewProdukt() {
@@ -71,7 +71,7 @@ public class ConsoleView {
         if (produkt != null) {
             System.out.println("Found: " + produkt);
         } else {
-            System.out.println("❌ Produkt not found.");
+            System.out.println("Produkt not found.");
         }
     }
 
@@ -81,7 +81,7 @@ public class ConsoleView {
         Produkt produkt = controller.getProdukt(id);
 
         if (produkt == null) {
-            System.out.println("❌ Produkt not found.");
+            System.out.println("Produkt not found.");
             return;
         }
 
@@ -93,7 +93,7 @@ public class ConsoleView {
         String season = scanner.nextLine();
 
         controller.updateProdukt(id, new Produkt(id, name, price, season));
-        System.out.println("✅ Produkt updated successfully!");
+        System.out.println("Produkt updated successfully!");
     }
 
     private void deleteProdukt() {
@@ -101,11 +101,11 @@ public class ConsoleView {
         int id = getValidInt();
         Produkt produkt = controller.getProdukt(id);
         if (produkt == null) {
-            System.out.println("❌ Produkt not found.");
+            System.out.println("Produkt not found.");
             return;
         }
         controller.deleteProdukt(id);
-        System.out.println("✅ Produkt deleted successfully!");
+        System.out.println("Produkt deleted successfully!");
     }
 
     private void addKunde() {
@@ -123,12 +123,12 @@ public class ConsoleView {
             if (controller.getProdukt(produktId) != null) {
                 produktIds.add(produktId);
             } else {
-                System.out.println("❌ Produkt ID " + produktId + " does not exist. Try again.");
+                System.out.println("Produkt ID " + produktId + " does not exist. Try again.");
             }
         }
 
-        controller.addCustomer(new Kunde(0, name, ort, produktIds));
-        System.out.println("✅ Kunde added successfully!");
+        controller.addKunde(new Kunde(0, name, ort, produktIds));
+        System.out.println("Kunde added successfully!");
     }
 
     private void viewKunde() {
@@ -136,9 +136,9 @@ public class ConsoleView {
         int id = getValidInt();
         Kunde kunde = controller.getKunde(id);
         if (kunde != null) {
-            System.out.println("🔹 " + kunde);
+            System.out.println(" - " + kunde);
         } else {
-            System.out.println("❌ Kunde not found.");
+            System.out.println("Kunde not found.");
         }
     }
 
@@ -147,7 +147,7 @@ public class ConsoleView {
         int id = getValidInt();
         Kunde kunde = controller.getKunde(id);
         if (kunde == null) {
-            System.out.println("❌ Kunde not found.");
+            System.out.println("Kunde not found.");
             return;
         }
 
@@ -164,12 +164,12 @@ public class ConsoleView {
             if (controller.getProdukt(produktId) != null) {
                 produktIds.add(produktId);
             } else {
-                System.out.println("❌ Produkt ID " + produktId + " does not exist. Try again.");
+                System.out.println("Produkt ID " + produktId + " does not exist. Try again.");
             }
         }
 
         controller.updateKunde(id, new Kunde(id, name, ort, produktIds));
-        System.out.println("✅ Kunde updated successfully!");
+        System.out.println("Kunde updated successfully!");
     }
 
     private void deleteKunde() {
@@ -177,11 +177,11 @@ public class ConsoleView {
         int id = getValidInt();
         Kunde kunde = controller.getKunde(id);
         if (kunde == null) {
-            System.out.println("❌ Kunde not found.");
+            System.out.println("Kunde not found.");
             return;
         }
         controller.deleteKunde(id);
-        System.out.println("✅ Kunde deleted successfully!");
+        System.out.println("Kunde deleted successfully!");
     }
 
     private void filterKundenByOrt() {
@@ -189,7 +189,7 @@ public class ConsoleView {
         String ort = scanner.nextLine();
         List<Kunde> kunden = controller.filterCustomersByPlace(ort);
         if (kunden.isEmpty()) {
-            System.out.println("❌ No Kunden found in " + ort);
+            System.out.println("No Kunden found in " + ort);
         } else {
             kunden.forEach(System.out::println);
         }
@@ -200,7 +200,7 @@ public class ConsoleView {
         String season = scanner.nextLine();
         List<Kunde> kunden = controller.filterCustomersByProductSeason(season);
         if (kunden.isEmpty()) {
-            System.out.println("❌ No Kunden found with products in " + season);
+            System.out.println("No Kunden found with products in " + season);
         } else {
             kunden.forEach(System.out::println);
         }
@@ -214,7 +214,7 @@ public class ConsoleView {
 
         List<Produkt> produkte = controller.sortProductsByCustomer(id, ascending);
         if (produkte.isEmpty()) {
-            System.out.println("❌ No products found for Kunde ID " + id);
+            System.out.println("No products found for Kunde ID " + id);
         } else {
             produkte.forEach(System.out::println);
         }
@@ -225,7 +225,7 @@ public class ConsoleView {
             try {
                 return Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
-                System.out.print("❌ Invalid input. Enter a valid number: ");
+                System.out.print("Invalid input. Enter a valid number: ");
             }
         }
     }
@@ -235,7 +235,7 @@ public class ConsoleView {
             try {
                 return Double.parseDouble(scanner.nextLine());
             } catch (NumberFormatException e) {
-                System.out.print("❌ Invalid input. Enter a valid price: ");
+                System.out.print("Invalid input. Enter a valid price: ");
             }
         }
     }
